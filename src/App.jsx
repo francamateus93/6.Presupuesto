@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import Card from "./components/Card"
-// import Total from "./components/Total"
+import Card from "./components/Card.jsx"
+import Total from "./components/Total.jsx"
 import './App.css'
 
 function App() {
@@ -12,17 +12,42 @@ function App() {
     }
   )
 
-  // const handleCheckbox = (service) => {
-  //   setServices((serv) => ({ ...serv, [service]: {
-  //     ...prev[service],
-  //     isChosen: !prev[service].isChosen
-  //     }
-  //   }))
-  // }
+  const handleCheckbox = (service) => {
+    setServices((serv) => ({ ...serv, [service]: {
+      ...prev[service],
+      isChosen: !prev[service].isChosen
+      }
+    }))
+  }
+
+  const totalPrice = Object.values(services)
+  .filter((service) => service.isChosen)
+  .reduce((sum, service) => sum + service.price, 0)
 
   return (
     <main>
-      <Card />
+      <header>
+        <img src="" alt="" />
+      </header>
+      <section>
+        <Card
+          product="SEO"
+          price={300}
+          isChosen={services.seo.isChosen}
+          onChange={() => handleCheckbox('seo')} />
+        <Card
+          product="Ads"
+          price={400}
+          isChosen={services.ads.isChosen}
+          onChange={() => handleCheckbox('ads')} />
+        <Card
+          product="Web"
+          price={500}
+          isChosen={service.web.isChosen}
+          onChange={() => handleCheckbox('web')} />
+        <Total
+          total={totalPrice} />
+      </section>
     </main>
   )
 }
