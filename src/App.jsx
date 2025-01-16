@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Card from "./components/Card";
 import Total from "./components/Total";
-import "./App.css";
+import Header from "./assets/header-img.png"
+import "./index.css";
 
 function App() {
   const [services, setServices] = useState({
@@ -12,7 +13,7 @@ function App() {
 
   const handleCheckbox = (service) => {
     setServices((serv) => ({
-      ...serv,
+      ...prev,
       [service]: {
         ...prev[service],
         ischosen: !prev[service].ischosen,
@@ -25,9 +26,14 @@ function App() {
     .reduce((sum, service) => sum + service.price, 0);
 
   return (
-    <>
-      <h1 className="text-2xl font-bold text-center">Aconsegueix la millor qualitat</h1>
-      <div className="mx-auto max-w-xl">
+    <main className="max-auto">
+      <header className="my-8">
+      <img 
+        src={Header}
+        alt="Header photo with notebook" 
+        className="rounded-xl mx-auto"/>
+      </header>
+      <section className="flex flex-col gap-6">
         <Card
           product="SEO"
           price={300}
@@ -47,8 +53,8 @@ function App() {
           onChange={() => handleCheckbox("web")}
         />
         <Total total={totalPrice} />
-      </div>
-    </>
+      </section>
+    </main>
   );
 }
 
