@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "./components/Card";
 import Total from "./components/Total";
-// import "./App.css";
+import "./App.css";
 
 function App() {
   const [services, setServices] = useState({
@@ -25,7 +25,7 @@ function App() {
     .reduce((sum, service) => sum + service.price, 0);
 
   return (
-    <main>
+    <>
       <h1 className="text-2xl font-bold text-center">Aconsegueix la millor qualitat</h1>
       <div className="mx-auto max-w-xl">
         <Card
@@ -48,7 +48,7 @@ function App() {
         />
         <Total total={totalPrice} />
       </div>
-    </main>
+    </>
   );
 }
 
