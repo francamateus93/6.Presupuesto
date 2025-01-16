@@ -14,7 +14,7 @@ function Card({ product, price, ischosen, onChange }) {
         <input 
           type="checkbox"
           name="input-form"
-          className="h-4 w-4"
+          className="form-checkbox h-4 w-4"
           ischosen={ischosen}
           onChange={onChange}
         /> <span className="text-xs font-semibold text-gray-700">Check</span>

@@ -12,7 +12,7 @@ function App() {
   });
 
   const handleCheckbox = (service) => {
-    setServices((serv) => ({
+    setServices((prev) => ({
       ...prev,
       [service]: {
         ...prev[service],
