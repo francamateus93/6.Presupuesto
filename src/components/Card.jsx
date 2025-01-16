@@ -1,8 +1,8 @@
 import React from "react";
 
-function Card({ product, price, isChosen, onChange }) {
+function Card({ product, price, ischosen, onChange }) {
   return (
-    <div>
+    <div className="flex justify-between items-center">
       <div>
         <h3>{product}</h3>
         <p>Programming a complete responsive website</p>
@@ -11,9 +11,10 @@ function Card({ product, price, isChosen, onChange }) {
         <strong>{price} €</strong>
         <input 
           type="checkbox"
-          isChosen={isChosen}
+          name="input-form"
+          ischosen={ischosen}
           onChange={onChange}
-          ClassName="" 
+          // className="" 
         />
       </div>
     </div>

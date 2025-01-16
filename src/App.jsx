@@ -1,55 +1,55 @@
-import { useState } from 'react'
-import Card from "./components/Card.jsx"
-import Total from "./components/Total.jsx"
-import './App.css'
+import React, { useState } from "react";
+import Card from "./components/Card";
+import Total from "./components/Total";
+// import "./App.css";
 
 function App() {
-  const [services, setServices] = useState(
-    {
-      seo: { price: 300, isChosen: false },
-      ads: { price: 400, isChosen: false },
-      web: { price: 500, isChosen: false },
-    }
-  )
+  const [services, setServices] = useState({
+    seo: { price: 300, ischosen: false },
+    ads: { price: 400, ischosen: false },
+    web: { price: 500, ischosen: false },
+  });
 
   const handleCheckbox = (service) => {
-    setServices((serv) => ({ ...serv, [service]: {
-      ...prev[service],
-      isChosen: !prev[service].isChosen
-      }
-    }))
-  }
+    setServices((serv) => ({
+      ...serv,
+      [service]: {
+        ...prev[service],
+        ischosen: !prev[service].ischosen,
+      },
+    }));
+  };
 
   const totalPrice = Object.values(services)
-  .filter((service) => service.isChosen)
-  .reduce((sum, service) => sum + service.price, 0)
+    .filter((service) => service.ischosen)
+    .reduce((sum, service) => sum + service.price, 0);
 
   return (
     <main>
-      <header>
-        <img src="" alt="" />
-      </header>
-      <section>
+      <h1 className="text-2xl font-bold text-center">Aconsegueix la millor qualitat</h1>
+      <div className="mx-auto max-w-xl">
         <Card
           product="SEO"
           price={300}
-          isChosen={services.seo.isChosen}
-          onChange={() => handleCheckbox('seo')} />
+          isChosen={services.seo.ischosen}
+          onChange={() => handleCheckbox("seo")}
+        />
         <Card
           product="Ads"
           price={400}
-          isChosen={services.ads.isChosen}
-          onChange={() => handleCheckbox('ads')} />
+          isChosen={services.ads.ischosen}
+          onChange={() => handleCheckbox("ads")}
+        />
         <Card
           product="Web"
           price={500}
-          isChosen={service.web.isChosen}
-          onChange={() => handleCheckbox('web')} />
-        <Total
-          total={totalPrice} />
-      </section>
+          isChosen={services.web.ischosen}
+          onChange={() => handleCheckbox("web")}
+        />
+        <Total total={totalPrice} />
+      </div>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
