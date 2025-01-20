@@ -3,7 +3,6 @@ import React from "react";
 function Options({pages, setPages, languages, setLanguages}) {
   const decreasesPage = () => setPages((prev) => (prev > 1 ? prev - 1 : 1))
   const increasesPage = () => setPages((prev) => prev + 1)
-
   const decreasesLanguage = () => setLanguages((prev) => (prev > 1 ? prev - 1 : 1))
   const increasesLanguage = () => setLanguages((prev) => prev + 1)
 
@@ -46,5 +45,4 @@ function Options({pages, setPages, languages, setLanguages}) {
       </div>
   )
 }
-
 export default Options;
