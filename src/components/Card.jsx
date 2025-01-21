@@ -2,14 +2,14 @@ import React from "react";
 
 function Card({ product, price, isChosen, onChange, children }) {
   return (
-  <div className={`rounded-lg shadow-lg p-10 mx-auto flex flex-col justify-center ${isChosen ? "border-2 border-gray-400" : "none"}`}>
-    <div className="flex justify-between items-center gap-10">
+  <div className={`rounded-lg shadow-lg p-10 mx-auto flex flex-col justify-center ${isChosen ? "border-2 border-cyan-600" : "none"}`}>
+    <div className="flex justify-between items-center gap-12">
       <div>
-        <h3 className="text-2xl font-extrabold">{product}</h3>
-        <p className="text-sm text-gray-600">Programming a complete responsive website</p>
+        <h3 className="text-3xl font-extrabold">{product}</h3>
+        <p className="text-sm text-gray-400">Programming a complete responsive website</p>
       </div>
       <div className="flex items-center gap-5">
-        <strong className="font-black text-3xl">{price}<span className="text-base">€</span></strong>
+        <strong className="font-black text-4xl">{price}<span className="text-base">€</span></strong>
       </div>
       <div className="flex items-center gap-2">
         <input 
@@ -19,7 +19,7 @@ function Card({ product, price, isChosen, onChange, children }) {
           checked={isChosen}
           onChange={onChange}
         />
-        <span className="text-xs font-semibold text-gray-600">Check</span>
+        <span className="text-sm font-medium text-gray-600">Check</span>
       </div>
       </div>
       {isChosen && <div>{children}</div>}

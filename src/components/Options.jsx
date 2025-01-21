@@ -45,4 +45,5 @@ function Options({pages, setPages, languages, setLanguages}) {
       </div>
   )
 }
+
 export default Options;

@@ -1,16 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../components/Card"
 import Total from "../components/Total";
 import Options from "../components/Options";
-// import Header from "/"
+import Budget from "../components/Budget";
 import { useNavigate } from "react-router-dom";
 
 function Calculator() {
-
-// Navigation
   const navigate = useNavigate()
 
-// States
   const [services, setServices] = useState({
       seo: { price: 300, isChosen: false },
       ads: { price: 400, isChosen: false },
@@ -39,7 +36,7 @@ function Calculator() {
       }, 0) ;
 
   return (
-      <>
+      <main className="flex flex-col justify-center">
         <header className="mx-auto">
           <div>
             <button
@@ -47,15 +44,15 @@ function Calculator() {
               className=""
               >Back home</button>
           </div>
-          <img
+          {/* <img
             src="/header-img.png"
             alt="Header photo with notebook"
             className="rounded-xl mx-auto"
-          />
+          /> */}
         </header>
         <section className="flex flex-col gap-6">
           <Card
-            product="SEO"
+            product="Seo"
             price={300}
             isChosen={services.seo.isChosen}
             onChange={() => handleCheckbox("seo")}
@@ -80,8 +77,9 @@ function Calculator() {
           />
           </Card>
           <Total total={totalPrice} />
+          <Budget />
         </section> 
-      </>
+      </main>
   )
 }
 
