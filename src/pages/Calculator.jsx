@@ -52,7 +52,7 @@ function Calculator() {
       }, 0) ;
 
   return (
-      <main className="flex flex-col justify-center">
+      <main className="flex flex-col justify-center gap-12">
         <header className="mx-auto">
           <div>
             <button
@@ -99,7 +99,7 @@ function Calculator() {
             totalPrice={totalPrice}/>
         </section> 
 
-      <section>
+      <section className="flex flex-col gap-6">
         <BudgetList
           budgets={budgets} />
         </section>
