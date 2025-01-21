@@ -3,20 +3,35 @@ import Card from "../components/Card"
 import Total from "../components/Total";
 import Options from "../components/Options";
 import Budget from "../components/Budget";
+import BudgetList from "../components/BudgetList";
 import { useNavigate } from "react-router-dom";
 
 function Calculator() {
   const navigate = useNavigate()
 
+  // State - Service and Price
   const [services, setServices] = useState({
       seo: { price: 300, isChosen: false },
       ads: { price: 400, isChosen: false },
       web: { price: 500, isChosen: false },
     });
-    
-  const [pages, setPages] = useState(1)
-  const [languages, setLanguages] = useState(1)
   
+  // State - Pages and Languages 
+  const [pages, setPages] = useState(1);
+  const [languages, setLanguages] = useState(1);
+
+  // State - Budget and ID
+  const [budgets, setBudgets] = useState([]);
+  const [idBudget, setIdBudget] = useState(1);
+
+  // Handle Budget
+    const saveBudget = (newBudget) => {
+      const budgetWithId = {...newBudget, id: idBudget}
+      setBudgets((prev) => [...prev, budgetWithId]);
+      setIdBudget((id) => id + 1);
+    }
+
+  // Handle Checkbox
     const handleCheckbox = (service) => {
       setServices((prev) => ({
         ...prev,
@@ -27,6 +42,7 @@ function Calculator() {
       }));
     };
   
+  // Calculate total price
     const webPrice = 500 + (pages + languages) * 30
     const totalPrice = Object.entries(services).reduce((sum, [key, service]) => {
         if (key === "web" && service.isChosen) {
@@ -77,8 +93,16 @@ function Calculator() {
           />
           </Card>
           <Total total={totalPrice} />
-          <Budget />
+          <Budget
+            addNewBudget={saveBudget}
+            services={services} 
+            totalPrice={totalPrice}/>
         </section> 
+
+      <section>
+        <BudgetList
+          budgets={budgets} />
+        </section>
       </main>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Budget({ addNewBudget, services, totalPrice, }) {
+function Budget({ addNewBudget, services, totalPrice }) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -10,27 +10,27 @@ function Budget({ addNewBudget, services, totalPrice, }) {
       alert("Please complete all the form.")
       return;
     };
-
-   const selectedServices = Object.entries(services)
-   .filter(([_,service]) => service.isChosen)
-   .map(([key]) => key); 
-   
-   const newBudget = {
-    name: fullName,
-    email: email,
-    phone: phoneNumber,
-    services: selectedServices,
-    total: totalPrice,
-   };
-
-  addNewBudget(newBudget);
-  setFullName();
-  setEmail();
-  setPhoneNumber();
+    
+    const selectedServices = Object.entries(services)
+    .filter(([_, service]) => service.isChosen)
+    .map(([key]) => key); 
+    
+    const newBudget = {
+     name: fullName,
+     email: email,
+     phone: phoneNumber,
+     services: selectedServices,
+     total: totalPrice
+    };
+    
+    addNewBudget(newBudget);
+    setFullName('');
+    setEmail('');
+    setPhoneNumber('');
   }
    
   return (
-  <div className="rounded-xl shadow-2xl p-10 mx-auto">
+  <div className="rounded-xl shadow-xl p-10 mx-auto">
     <div>
       <h3 className="text-3xl font-extrabold mb-6">Request a Budget</h3>
         <div className="flex justify-start items-center gap-2">
