@@ -60,7 +60,7 @@ function Budget({ addNewBudget, services, totalPrice }) {
             placeholder="Full Name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
-            className={`border rounded-lg w-40 px-2 py-2 text-sm ${
+            className={`border rounded-lg w-40 px-2 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-200 ${
               error.fullName ? "border-red-500" : ""
             }`}
             required
@@ -76,7 +76,7 @@ function Budget({ addNewBudget, services, totalPrice }) {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={`border rounded-lg w-36 px-2 py-2 text-sm ${
+            className={`border rounded-lg w-40 px-2 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-200 ${
               error.email ? "border-red-500" : ""
             }`}
             required
@@ -90,7 +90,7 @@ function Budget({ addNewBudget, services, totalPrice }) {
             placeholder="Phone"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-            className={`border rounded-lg w-32 px-2 py-2 text-sm ${
+            className={`border rounded-lg w-40 px-2 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-200 ${
               error.phoneNumber ? "border-red-500" : ""
             }`}
             required
@@ -100,8 +100,9 @@ function Budget({ addNewBudget, services, totalPrice }) {
           )}
           <button
             onClick={saveBudget}
-            className="px-6 py-2 shadow-lg text-center text-sm rounded-lg text-white bg-cyan-600 hover:bg-cyan-700"
+            className="px-6 py-2 text-center text-sm rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 transition"
           >
+            {" "}
             Send
           </button>
         </div>

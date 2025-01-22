@@ -27,7 +27,10 @@ function Calculator() {
   // Handle Budget
   const saveBudget = (newBudget) => {
     const budgetWithId = { ...newBudget, id: idBudget };
-    setBudgets((prev) => [...prev, budgetWithId]);
+    const updatedBudgets = [...budgets, budgetWithId].sort(
+      (a, b) => a.id - b.id
+    );
+    setBudgets(updatedBudgets);
     setIdBudget((id) => id + 1);
   };
 
