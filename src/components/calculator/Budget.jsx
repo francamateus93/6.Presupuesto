@@ -12,7 +12,7 @@ function Budget({ addNewBudget, services, totalPrice }) {
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validatePhone = (number) => /^[0-9]+$/.test(number);
 
-  const saveBudget = () => {
+  const handleBudget = () => {
     const newError = {};
 
     if (!validateName(fullName)) {
@@ -99,7 +99,7 @@ function Budget({ addNewBudget, services, totalPrice }) {
             <p className="text-red-500 text-sm py-1">{error.phoneNumber}</p>
           )}
           <button
-            onClick={saveBudget}
+            onClick={handleBudget}
             className="px-6 py-2 text-center text-sm rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 transition"
           >
             {" "}

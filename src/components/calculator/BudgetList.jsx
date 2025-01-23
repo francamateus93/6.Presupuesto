@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 
 function BudgetList({ budgets }) {
   const [filteredBudgets, setFilteredBudgets] = useState(budgets);

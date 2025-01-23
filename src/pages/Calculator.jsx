@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import Card from "../components/Card";
-import Total from "../components/Total";
-import Options from "../components/Options";
-import Budget from "../components/Budget";
-import BudgetList from "../components/BudgetList";
+import Card from "../components/calculator/Card";
+import Total from "../components/calculator/Total";
+import Options from "../components/calculator/Options";
+import Budget from "../components/calculator/Budget";
+import BudgetList from "../components/calculator/BudgetList";
+import Toggle from "../components/calculator/Toggle";
+import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 
 function Calculator() {
@@ -24,8 +26,15 @@ function Calculator() {
   const [budgets, setBudgets] = useState([]);
   const [idBudget, setIdBudget] = useState(1);
 
-  // Handle Budget
-  const saveBudget = (newBudget) => {
+  // State - Discount
+  const [annualDiscount, setannualDiscount] = useState(false);
+
+  const handleToogle = () => {
+    setannualDiscount(!annualDiscount);
+    onToggle(!annualDiscount);
+  };
+
+  const handleBudget = (newBudget) => {
     const budgetWithId = { ...newBudget, id: idBudget };
     const updatedBudgets = [...budgets, budgetWithId].sort(
       (a, b) => a.id - b.id
@@ -34,7 +43,6 @@ function Calculator() {
     setIdBudget((id) => id + 1);
   };
 
-  // Handle Checkbox
   const handleCheckbox = (service) => {
     setServices((prev) => ({
       ...prev,
@@ -55,15 +63,10 @@ function Calculator() {
   }, 0);
 
   return (
-    <main className="flex flex-col justify-center gap-12">
-      <header className="mx-auto">
-        <div>
-          <button onClick={() => navigate("/home")} className="">
-            Back home
-          </button>
-        </div>
-      </header>
+    <main className="flex flex-col justify-center gap-2">
+      <Navbar />
       <section className="flex flex-col gap-6">
+        <Toggle />
         <Card
           product="Seo"
           price={300}
@@ -91,13 +94,13 @@ function Calculator() {
         </Card>
         <Total total={totalPrice} />
         <Budget
-          addNewBudget={saveBudget}
+          addNewBudget={handleBudget}
           services={services}
           totalPrice={totalPrice}
         />
       </section>
 
-      <section className="flex flex-col gap-6">
+      <section className="flex flex-col gap-6 mt-8">
         <BudgetList budgets={budgets} />
       </section>
     </main>
