@@ -1,27 +1,31 @@
 import React from "react";
 
-function Toggle({ onToggle }) {
+function Toggle({ annualDiscount, onToggle }) {
   return (
     <div className="relative flex flex-col items-center justify-center overflow-hidden">
       <div className="flex items-center mx-2">
-        <span className="mx-2 font-medium tracking-tight text-gray-600">
-          Month
+        <span className="mx-2 font-medium tracking-tight text-gray-600 hover:text-gray-800 transition">
+          Month Payment
         </span>
         <label className="inline-flex relative items-center cursor-pointer">
           <input
             type="checkbox"
             name="toogle switch"
             className="sr-only peer"
-            checked={enabled}
             readOnly
           />
           <div
             onClick={onToggle}
-            className="w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"
-          >
-            {isDiscountActive ? "Remove Discount" : "Apply 20% Discount"}
-          </div>
+            className={`w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600 ${
+              annualDiscount
+                ? "bg-red-500 text-white"
+                : "bg-gray-300 text-black"
+            }`}
+          ></div>
         </label>
+        <span className="mx-2 font-medium tracking-tight text-gray-600 hover:text-gray-800 transition">
+          Annual Payment
+        </span>
       </div>
     </div>
   );
