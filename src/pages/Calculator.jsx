@@ -77,7 +77,7 @@ function Calculator() {
   }, [services, annualDiscount, pages, languages]);
 
   return (
-    <main className="flex flex-col justify-center gap-2">
+    <main className="flex flex-col justify-center px-4 py-8 gap-2 sm:px-6 lg:px-8 max-w-2xl mx-auto">
       <Navbar />
       <section className="flex flex-col gap-6">
         <Toggle onToggle={handleToogle} annualDiscount={annualDiscount} />
@@ -86,18 +86,21 @@ function Calculator() {
           price={annualDiscount ? services.seo.price * 0.8 : services.seo.price}
           isChosen={services.seo.isChosen}
           onChange={() => handleCheckbox("seo")}
+          annualDiscount={annualDiscount}
         />
         <Card
           product="Ads"
           price={annualDiscount ? services.ads.price * 0.8 : services.ads.price}
           isChosen={services.ads.isChosen}
           onChange={() => handleCheckbox("ads")}
+          annualDiscount={annualDiscount}
         />
         <Card
           product="Web"
           price={annualDiscount ? services.web.price * 0.8 : services.web.price}
           isChosen={services.web.isChosen}
           onChange={() => handleCheckbox("web")}
+          annualDiscount={annualDiscount}
         >
           <Options
             pages={pages}

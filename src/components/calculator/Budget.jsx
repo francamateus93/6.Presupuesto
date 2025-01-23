@@ -48,12 +48,12 @@ function Budget({ addNewBudget, services, totalPrice }) {
   };
 
   return (
-    <div className="rounded-lg shadow-lg p-12 mx-auto">
+    <div className="rounded-lg shadow-lg p-12 mx-auto text-center">
       <div>
         <h3 className="text-3xl font-extrabold mb-6 tracking-tighter">
           Request a Budget
         </h3>
-        <div className="flex flex-wrap justify-start items-center gap-2">
+        <div className="flex flex-col justify-start items-center gap-2">
           <input
             type="text"
             name="input-name"
@@ -100,7 +100,7 @@ function Budget({ addNewBudget, services, totalPrice }) {
           )}
           <button
             onClick={handleBudget}
-            className="px-6 py-2 text-center text-sm rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 transition"
+            className="px-6 py-2 text-center text-sm rounded-lg text-white bg-cyan-600 hover:bg-cyan-700 transition mt-4"
           >
             {" "}
             Send
