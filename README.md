@@ -9,7 +9,7 @@ This web application focuses on automating and simplifying the budgeting process
 - Budget Saving and History: Users can save their calculated budgets, which are displayed in a sorted list, allowing for easy reference and comparison of multiple budgets.
 - Responsive and Intuitive Interface: The application features a responsive design and user-friendly controls ensuring accessibility.
 
-## 💻 Tecnologías Utilizadas
+## 💻 Technologies
 
 - React: Library for building user interfaces.
   - `React Router`: To handle navigation between different views of the app.
