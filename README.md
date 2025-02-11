@@ -11,7 +11,7 @@ This web application focuses on automating and simplifying the budgeting process
 
 ## 🎥 Demo
 
-![Demonstração]("./public/Calculator-video.gif")
+![Calculator](./public/Calculator-video.gif)
 
 ## 💻 Technologies
 
