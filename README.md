@@ -9,6 +9,10 @@ This web application focuses on automating and simplifying the budgeting process
 - Budget Saving and History: Users can save their calculated budgets, which are displayed in a sorted list, allowing for easy reference and comparison of multiple budgets.
 - Responsive and Intuitive Interface: The application features a responsive design and user-friendly controls ensuring accessibility.
 
+## 🎥 Demo
+
+![Demonstração]("./public/Calculator-video.gif")
+
 ## 💻 Technologies
 
 - React: Library for building user interfaces.
@@ -24,18 +28,9 @@ This web application focuses on automating and simplifying the budgeting process
 
 To run this project, you need to have installed:
 
-- `Node.js` (version 14 or higher): JavaScript runtime environment.
+- `Node.js` (version 16 or higher): JavaScript runtime environment.
 - `npm o yarn`: Package managers for installing dependencies.
 - `Vite`: Already configured as part of the project, but requires Node.js to function.
-
-## 🛠️ Installation
-
-Install the project with npm:
-
-```bash
-  npm install 6.Presupuesto
-  cd 6.Presupuesto
-```
 
 ## ▶️ Run Locally
 
@@ -63,12 +58,22 @@ Start the server
   npm run dev / npm run start
 ```
 
-## 📘 Acknowledgements
+## 🛠️ Installation
+
+Install the project with npm:
+
+```bash
+  npm install 6.Presupuesto
+  cd 6.Presupuesto
+```
+
+## 📘 Documentation
 
 - [React Folder Structure - WebDevSimplified ](https://github.com/WebDevSimplified/react-folder-structure/tree/main)
+- [How To Structure React Projects From Beginner To Advanced](https://blog.webdevsimplified.com/2022-07/react-folder-structure/)
+- [Built-in React Hooks](https://react.dev/reference/react/hooks)
 - [React App Readme Example](https://www.restack.io/p/guide-to-developing-ai-applications-answer-react-app-readme-example)
-- [How to write React Readme.md](https://github.com/facebook/create-react-app/blob/main/packages/cra-template/template/README.md)
 
 ## 🤝 Support
 
-A student project created at IT Academy, in the FrontEnd Angular/React course at Barcelona Activa.
+A project created at IT Academy, in the FrontEnd Angular/React course at Barcelona Activa.

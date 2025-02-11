@@ -6,7 +6,6 @@ import Budget from "../components/calculator/Budget";
 import BudgetList from "../components/calculator/BudgetList";
 import Toggle from "../components/calculator/Toggle";
 import Navbar from "../components/Navbar";
-import { useNavigate } from "react-router-dom";
 
 function Calculator() {
   // State - Service and Price
